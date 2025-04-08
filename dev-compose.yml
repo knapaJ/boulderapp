@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mongodb/mongodb-community-server:latest
+    container_name: mongodb
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=db
+      - MONGODB_INITDB_ROOT_PASSWORD=password
+    ports:
+      - "27017:27017"
+    volumes:
+      - lezeni_db:/data/db
+
+
+volumes:
+    lezeni_db:
