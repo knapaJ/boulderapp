@@ -37,7 +37,13 @@
 		<NavUl activeUrl={activeUrl}>
 			<NavLi href="/">Domů</NavLi>
 			<NavLi href="/rules">Pravidla soutěže</NavLi>
+			<NavLi href="/boulders">Bouldery</NavLi>
+			<NavLi href="/leaderboard">Žebříčky</NavLi>
 			<NavLi href="/about">O aplikaci</NavLi>
+
+			{#if data.user?.isAdmin}
+				<NavLi href="/admin">Administrace</NavLi>
+			{/if}
 		</NavUl>
 	</Navbar>
 

@@ -24,7 +24,7 @@
 				Přihlas se
 			</a>
 		{:else}
-			<a href="/register" class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
+			<a href="/boulders" class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
 				Jdeme lézt!
 			</a>
 			<a href="/rules" class="inline-flex items-center text-primary-700 bg-white hover:bg-primary-200 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 border-2 border-primary-300">

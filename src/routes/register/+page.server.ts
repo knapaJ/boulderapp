@@ -18,6 +18,8 @@ export const actions: Actions = {
 		const password = data.get('password');
 		const confirm_password = data.get('confirm-password');
 		const tnc = data.get('tnc');
+		const sex = data.get("sex");
+		const level = data.get("level");
 
 
 
@@ -29,7 +31,7 @@ export const actions: Actions = {
 		if (!tnc) {
 			return fail(400, { username, firstName,lastName, faculty, error: 'tnc-not-accepted' });
 		}
-		if (!username || !firstName || !lastName || !faculty || !password) {
+		if (!username || !firstName || !lastName || !faculty || !password || !sex || !level) {
 			return fail(400, { error: 'missing-fields' });
 		}
 
@@ -43,6 +45,8 @@ export const actions: Actions = {
 			faculty: faculty.toString(),
 			isAdmin: false,
 			hiddenFromLeaderboard: false,
+			sex: sex.toString(),
+			level: level.toString(),
 		});
 
 		if (!createdUser) {

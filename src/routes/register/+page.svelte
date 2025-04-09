@@ -17,6 +17,15 @@
 		{ name: "Jiná", value: "other"}
 	];
 
+	let sexes = [
+		{ name: "Žena", value: "F"},
+		{ name: "Muž", value: "M"},
+	]
+	let levels = [
+		{ name: "Začátečník", value: "beginner"},
+		{ name: "Pokročilý", value: "advanced"},
+	]
+
 	let { form } : {form: ActionData } = $props();
 
 </script>
@@ -54,8 +63,17 @@
 					<Select name="faculty" class="mt-2" items={faculties} placeholder="Vyber fakultu..." required value={form?.faculty ?? ''}></Select>
 				</Label>
 				<Label class="space-y-2">
+					<span>Pohlaví</span>
+					<Select name="sex" class="mt-2" items={sexes} required placeholder="Vyber svoje pohlaví"></Select>
+				</Label>
+				<Label class="space-y-2">
+					<span>Úroveň</span>
+					<Select name="level" class="mt-2" items={levels} required placeholder="Vyber svoji úroveň"></Select>
+				</Label>
+				<Label class="space-y-2">
 					<span>Heslo</span>
 					<Input type="password" name="password" placeholder="•••••" required />
+					<Helper class="mt-2" color="red">Heslo je viditelné administrátorům!</Helper>
 				</Label>
 				<Label class="space-y-2">
 					<span>Heslo znovu</span>

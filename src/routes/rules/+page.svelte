@@ -55,7 +55,7 @@
 <Section sectionClass="h-96">
 	<Drawer transitionType="fly" {transitionParams} bind:hidden id="sidebar4">
 		<div class="flex items-center">
-			<h5 id="drawer-label" class="inline-flex items-center mb-6 text-base font-semibold text-gray-500 uppercase dark:text-gray-400">UPDATE USER</h5>
+			<h5 id="drawer-label" class="inline-flex items-center mb-6 text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Upravit</h5>
 			<CloseButton on:click={() => (hidden = true)} class="mb-4 dark:text-white" />
 		</div>
 		<form action="/rules" class="mb-6" method="POST" enctype="multipart/form-data">

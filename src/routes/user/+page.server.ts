@@ -18,9 +18,16 @@ export const actions = {
 			const firstName = formData.get('firstName');
 			const lastName = formData.get('lastName');
 			const faculty = formData.get('faculty');
-			const hiddenFromLeaderboard = formData.get('hiddenFromLeaderboard');
+			const hiddenFromLeaderboard = formData.get('hiddenFromLeaderboard') ?? false;
+			const sex = formData.get('sex');
+			const level = formData.get('level');
+
+			console.log({
+				firstName, lastName, faculty, hiddenFromLeaderboard, sex, level
+			});
 
 			let currentUser = await getLoggedInUser(cookies);
+			console.log(currentUser);
 			if (!currentUser) {
 				return redirect(303, '/login');
 			}
@@ -29,6 +36,8 @@ export const actions = {
 			currentUser.lastName = lastName.toString();
 			currentUser.faculty = faculty.toString();
 			currentUser.hiddenFromLeaderboard = hiddenFromLeaderboard === 'on';
+			currentUser.sex = sex.toString();
+			currentUser.level = level.toString();
 
 			// Save the updated user to the database
 			const success = await updateUser(currentUser);

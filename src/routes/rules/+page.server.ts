@@ -27,7 +27,7 @@ export const actions = {
 		const competition_enabled = data.get('competition_enabled');
 		const image = data.get('image');
 
-		let currentRules = await getAppConfig();
+		const currentRules = await getAppConfig();
 
 		currentRules.rules = rules.toString();
 		currentRules.competition_enabled = competition_enabled === "on";

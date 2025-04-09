@@ -1,5 +1,7 @@
 import { type User, userCollection } from '$lib/user';
 import jwt from 'jsonwebtoken';
+import type { WithId } from 'mongodb';
+import type { Cookies } from '@sveltejs/kit';
 
 
 export async function tokenForUser(user: User): Promise<string> {
@@ -10,7 +12,7 @@ export async function tokenForUser(user: User): Promise<string> {
 	return token;
 }
 
-export async function userFromToken(token: string): Promise<User | null> {
+export async function userFromToken(token: string): Promise<WithId<User> | null> {
 	try {
 		const decoded = jwt.verify(token, "hello-world-secret-token");
 		const decoded_user = decoded.user;
@@ -23,7 +25,7 @@ export async function userFromToken(token: string): Promise<User | null> {
 	}
 }
 
-export async function getLoggedInUser(cookies: Cookies): Promise<User | null> {
+export async function getLoggedInUser(cookies: Cookies): Promise<WithId<User> | null> {
 	const cookieUser = cookies.get('session');
 	if (!cookieUser) return null;
 	const user = await userFromToken(cookieUser);

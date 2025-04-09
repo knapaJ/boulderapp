@@ -10,6 +10,8 @@ export type User = {
 	faculty: string,
 	isAdmin: boolean,
 	hiddenFromLeaderboard: boolean,
+	sex: string,
+	level: string,
 }
 
 export const userCollection = db.collection<User>('users');
@@ -38,7 +40,7 @@ export async function updateUser(user: User): Promise<User | null> {
 	const existingUser = await userCollection.findOne({ username: user.username });
 	if (!existingUser) return null;
 
-	if((user.username !== existingUser.username) || (!user.isAdmin)){
+	if((user.username !== existingUser.username) && (!user.isAdmin)){
 		return null;
 	}
 

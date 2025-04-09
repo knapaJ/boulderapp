@@ -15,12 +15,20 @@
 		{ name: "Fakulta výtvarných umění", value: "FAVU"},
 		{ name: "Jiná", value: "other"}
 	];
+	let sexes = [
+		{ name: "Žena", value: "F"},
+		{ name: "Muž", value: "M"},
+	];
+	let levels = [
+		{ name: "Začátečník", value: "beginner"},
+		{ name: "Pokročilý", value: "advanced"},
+	];
 </script>
 
 {#if data.user}
 <div class="flex flex-col md:flex-row justify-center items-center">
 	<div class="flex flex-col items-center justify-center gap-5">
-		<Avatar src={data.user.avatar} size="xl"/>
+		<Avatar size="xl"/>
 		<form method="POST" action="/user?/logout">
 			<Button type="submit">Odhlásit se</Button>
 		</form>
@@ -58,6 +66,14 @@
 		<Label class="space-y-2">
 			<span>Fakulta</span>
 			<Select name="faculty" class="mt-2" items={faculties} placeholder="Vyber fakultu..." required value={data.user.faculty}></Select>
+		</Label>
+		<Label class="space-y-2">
+			<span>Pohlaví</span>
+			<Select name="sex" class="mt-2" items={sexes} required placeholder="Vyber svoje pohlaví" value={data.user.sex}></Select>
+		</Label>
+		<Label class="space-y-2">
+			<span>Úroveň</span>
+			<Select name="level" class="mt-2" items={levels} required placeholder="Vyber svoji úroveň" value={data.user.level}></Select>
 		</Label>
 		{#if data.user.isAdmin}
 			<Checkbox name="hiddenFromLeaderboard" checked={data.user.hiddenFromLeaderboard} color="red">
