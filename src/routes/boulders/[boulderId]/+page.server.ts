@@ -125,9 +125,9 @@ export const actions = {
 		}
 
 		const file = image as File;
-		const filename = `/uploads/boulders/${file.name}`;
-		await fs.mkdir(`static/uploads/boulders`, { recursive: true });
-		await fs.writeFile("static"+filename, Buffer.from(await file.arrayBuffer()));
+		const filename = `/uploads/${file.name}`;
+		await fs.mkdir(`./uploads/`, { recursive: true });
+		await fs.writeFile("."+filename, Buffer.from(await file.arrayBuffer()));
 
 		const currentBoulder = await getBoulderById(params.boulderId);
 		if (!currentBoulder) {

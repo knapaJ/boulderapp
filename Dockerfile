@@ -1,17 +1,15 @@
 FROM node:22.14-alpine
 LABEL authors="jknap"
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+WORKDIR /app
 
-WORKDIR /home/node/app
-
-COPY --chown=node:node package*.json ./
-
-USER node
+COPY package*.json ./
 
 RUN npm install
 
-COPY --chown=node:node . .
+COPY . .
+
+ENV NODE_ENV=production
 
 EXPOSE 3000
 
