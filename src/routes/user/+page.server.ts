@@ -22,12 +22,12 @@ export const actions = {
 			const sex = formData.get('sex');
 			const level = formData.get('level');
 
-			console.log({
+			/*console.log({
 				firstName, lastName, faculty, hiddenFromLeaderboard, sex, level
-			});
+			});*/
 
 			let currentUser = await getLoggedInUser(cookies);
-			console.log(currentUser);
+			//console.log(currentUser);
 			if (!currentUser) {
 				return redirect(303, '/login');
 			}

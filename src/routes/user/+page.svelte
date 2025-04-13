@@ -13,6 +13,7 @@
 		{ name: "Fakulta chemická", value: "FCH" },
 		{ name: "Fakulta stavební", value: "FAST"},
 		{ name: "Fakulta výtvarných umění", value: "FAVU"},
+		{ name: "Centrum sportovních aktivit", value: "CESA"},
 		{ name: "Jiná", value: "other"}
 	];
 	let sexes = [

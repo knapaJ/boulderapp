@@ -54,45 +54,47 @@
 	</Toast>
 {/if}
 
-<div class="flex flex-col w-full justify-center">
+<div class="flex flex-col w-full max-w-full justify-center">
 	<div class="flex flex-col items-center">
 		<h1 class="text-3xl font-bold">Uživatelé</h1>
-		<Table>
-			<TableHead>
-				<TableHeadCell>Přezdívka</TableHeadCell>
-				<TableHeadCell>Jméno</TableHeadCell>
-				<TableHeadCell>Příjmení</TableHeadCell>
-				<TableHeadCell>Fakulta</TableHeadCell>
-				<TableHeadCell>Heslo</TableHeadCell>
-				<TableHeadCell>Možnosti</TableHeadCell>
-			</TableHead>
-			<TableBody tableBodyClass="divide-y">
-				{#each data.users as user}
-					<TableBodyRow>
-						<TableBodyCell>{user.username}
-							{#if user.isAdmin}
-								<Badge color="green" rounded>Admin</Badge>
-							{/if}
-						</TableBodyCell>
-						<TableBodyCell>{user.firstName}</TableBodyCell>
-						<TableBodyCell>{user.lastName}</TableBodyCell>
-						<TableBodyCell>{user.faculty}</TableBodyCell>
-						<TableBodyCell>{user.password}</TableBodyCell>
-						<TableBodyCell>
-							{#if user.isAdmin}
-								{#if user.username !== data.user.username}
-									<Button color="red" size="xs" onclick={() => demoteUser(user.username)}>Degradovat</Button>
-								{:else}
-									<Button color="dark" size="xs" disabled >Degradovat
-									</Button>
+		<div class="overflow-scroll max-w-full">
+			<Table>
+				<TableHead>
+					<TableHeadCell>Přezdívka</TableHeadCell>
+					<TableHeadCell>Jméno</TableHeadCell>
+					<TableHeadCell>Příjmení</TableHeadCell>
+					<TableHeadCell>Fakulta</TableHeadCell>
+					<TableHeadCell>Heslo</TableHeadCell>
+					<TableHeadCell>Možnosti</TableHeadCell>
+				</TableHead>
+				<TableBody tableBodyClass="divide-y">
+					{#each data.users as user}
+						<TableBodyRow>
+							<TableBodyCell>{user.username}
+								{#if user.isAdmin}
+									<Badge color="green" rounded>Admin</Badge>
 								{/if}
-							{:else}
-								<Button color="red" size="xs" onclick={() => promoteUser(user.username)}>Povýšit</Button>
-							{/if}
-						</TableBodyCell>
-					</TableBodyRow>
-				{/each}
-			</TableBody>
-		</Table>
+							</TableBodyCell>
+							<TableBodyCell>{user.firstName}</TableBodyCell>
+							<TableBodyCell>{user.lastName}</TableBodyCell>
+							<TableBodyCell>{user.faculty}</TableBodyCell>
+							<TableBodyCell>{user.password}</TableBodyCell>
+							<TableBodyCell>
+								{#if user.isAdmin}
+									{#if user.username !== data.user.username}
+										<Button color="red" size="xs" onclick={() => demoteUser(user.username)}>Degradovat</Button>
+									{:else}
+										<Button color="dark" size="xs" disabled >Degradovat
+										</Button>
+									{/if}
+								{:else}
+									<Button color="red" size="xs" onclick={() => promoteUser(user.username)}>Povýšit</Button>
+								{/if}
+							</TableBodyCell>
+						</TableBodyRow>
+					{/each}
+				</TableBody>
+			</Table>
+		</div>
 	</div>
 </div>

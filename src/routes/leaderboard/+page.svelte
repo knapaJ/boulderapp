@@ -20,7 +20,7 @@
 <div class="flex flex-col items-center w-full">
 	{#each data.boards as board}
 		<h2 class="text-2xl">{levels[board.level]} - {pohlavi[board.sex]}</h2>
-		<div class="flex-col max-w-3xl overflow-x-scroll">
+		<div class="flex-col md:max-w-3xl max-w-full overflow-x-scroll">
 			<Table>
 				<TableHead>
 					<TableHeadCell>Pořadí</TableHeadCell>
