@@ -66,6 +66,10 @@ export const actions = {
 		attempt.count = Number(count);
 		attempt.topped = topped;
 
+		if (attempt.topped){
+			attempt.count = Math.max(1, attempt.count);
+		}
+
 
 		await attemptCollection.updateOne({ _id: attempt._id }, { $set: attempt });
 		return {success: "attempt"};
