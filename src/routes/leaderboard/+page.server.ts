@@ -83,10 +83,11 @@ async function boardBy(filter){
 	})
 
 	board.sort((a,b) => {
-		if(a.toppedBoulders>b.toppedBoulders) return 1;
-		if(a.toppedBoulders<b.toppedBoulders) return -1;
-		if(a.totalAttempts<b.toppedBoulders) return 1;
-		if(a.totalAttempts>b.toppedBoulders) return -1;
+		if(a.toppedBoulders>b.toppedBoulders) return -1;
+		if(a.toppedBoulders<b.toppedBoulders) return 1;
+		if(a.totalAttempts<b.toppedBoulders) return -1;
+		if(a.totalAttempts>b.toppedBoulders) return 1;
+		return 0;
 	});
 
 	board.forEach((row,index) =>{

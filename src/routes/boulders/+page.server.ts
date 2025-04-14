@@ -22,10 +22,6 @@ export const load: PageServerLoad = async ({ request, cookies }) => {
 		};
 	});
 
-	exportboulders.sort((a,b) => {
-		return a.rating > b.rating ? 1: -1;
-	});
-
 
 	if(currentUser){
 		const bouldersWithAttempts = await boulderCollection.aggregate(
@@ -76,6 +72,9 @@ export const load: PageServerLoad = async ({ request, cookies }) => {
 		})
 	}
 
+	exportboulders.sort((a,b) => {
+		return a.rating > b.rating ? 1: -1;
+	});
 
 	return {
 		boulders: exportboulders,
