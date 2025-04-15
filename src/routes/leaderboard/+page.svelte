@@ -18,7 +18,6 @@
 </script>
 
 <div class="flex flex-col items-center w-full">
-	<h1 class="text-center text-primary-700 m-0.5">Vím o chybě v řazení žebříčků, aktuálně pracuji na její nápravě. Berte, prosím, zde generované žebříčky za předběžné. Při vyhlášení výsledků budou kontrolovány a zpracovávány ručně.</h1>
 	{#each data.boards as board}
 		<h2 class="text-2xl">{levels[board.level]} - {pohlavi[board.sex]}</h2>
 		<div class="flex-col md:max-w-3xl max-w-full overflow-x-scroll">

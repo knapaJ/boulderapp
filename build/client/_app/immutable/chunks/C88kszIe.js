@@ -1,0 +1,1 @@
+import{af as a}from"./BUBo3YVX.js";a();
