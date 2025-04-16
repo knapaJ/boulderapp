@@ -5,7 +5,7 @@ services:
       - MONGODB_INITDB_ROOT_USERNAME=db
       - MONGODB_INITDB_ROOT_PASSWORD=password
     ports:
-      - "27017:27017"
+      - "127.0.0.1:27017:27017"
     volumes:
       - lezeni_db:/data/db
     restart:
@@ -19,7 +19,7 @@ services:
       - DB_URI=mongodb://db:password@db:27017/
       - BODY_SIZE_LIMIT=50000000
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     depends_on:
       - db
     volumes:
