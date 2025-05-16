@@ -1,0 +1,29 @@
+services:
+  db:
+    image: mongodb/mongodb-community-server:latest
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=db
+      - MONGODB_INITDB_ROOT_PASSWORD=password
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - lezeni_db:/data/db
+    restart:
+        unless-stopped
+
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      #- ORIGIN=http://localhost:3000
+      - DB_URI=mongodb://db:password@db:27017/
+      - BODY_SIZE_LIMIT=50000000
+    ports:
+      - "0.0.0.0:3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - ./uploads:/app/uploads
+
+volumes:
+  lezeni_db:
