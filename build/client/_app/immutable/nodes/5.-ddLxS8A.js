@@ -1,1 +1,0 @@
-import{t as a,a as n}from"../chunks/ErH8zhpA.js";import"../chunks/C88kszIe.js";var r=a('<div class="text-3xl flex flex-row justify-center content-center w-full h-full"><span class="text-center">Created by<br>Jan Knapovský</span></div>');function s(t){var e=r();n(t,e)}export{s as component};

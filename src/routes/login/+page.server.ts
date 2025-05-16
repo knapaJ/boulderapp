@@ -22,6 +22,7 @@ export const actions = {
 		cookies.set('session', token, {
 			expires: new Date(Date.now() + 60 * 60 * 24 * 1000), // 1 day
 			httpOnly: true,
+			secure: false, // To be able to use on local hosting non-https
 			path: '/',
 		})
 
