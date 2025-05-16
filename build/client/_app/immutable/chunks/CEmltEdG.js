@@ -1,0 +1,1 @@
+import{ag as a}from"./C1TBADaR.js";a();
